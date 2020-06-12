@@ -160,11 +160,12 @@ C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Edit.cshtml.g.cs
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Delete.cshtml.g.cs
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Category\Details.cshtml.g.cs
-C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.csproj.CoreCompileInputs.cache
-C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.genruntimeconfig.cache
 C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Index.cshtml.g.cs
 C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Create.cshtml.g.cs
 C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_StatusMessage.cshtml.g.cs
 C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Edit.cshtml.g.cs
 C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Details.cshtml.g.cs
 C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategory\Delete.cshtml.g.cs
+C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItem\Index.cshtml.g.cs
+C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItem\Create.cshtml.g.cs
+C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItem\Edit.cshtml.g.cs

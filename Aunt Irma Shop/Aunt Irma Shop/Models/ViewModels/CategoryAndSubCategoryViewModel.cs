@@ -11,7 +11,7 @@ namespace Aunt_Irma_Shop.Models.ViewModels
 
         public IEnumerable<Category> CategoryList { get; set; }
         public SubCategory SubCategory { get; set; }
-        [NotMapped]
+        
         public List<string> SubCategoryList { get; set; }
         public string StatusMessage { get; set; }
     }
