@@ -1,48 +1,46 @@
-﻿@model Aunt_Irma_Shop.Models.ViewModels.CategorySubCategoryandMenuItemViewModel
+﻿@model Aunt_Irma_Shop.Models.ViewModels.ItemViewModel
 @using Aunt_Irma_Shop.Extensions
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>MenuItem</h4>
+<h4>Edit Item</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MenuItem.Id" />
+            <input type="hidden" asp-for="Item.Id" />
             <div class="form-group">
-                <label asp-for="MenuItem.Name" class="control-label"></label>
-                <input asp-for="MenuItem.Name" class="form-control" />
-                <span asp-validation-for="MenuItem.Name" class="text-danger"></span>
+                <label asp-for="Item.Name" class="control-label"></label>
+                <input asp-for="Item.Name" class="form-control" />
+                <span asp-validation-for="Item.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MenuItem.Description" class="control-label"></label>
-                @Html.TextAreaFor(m => m.MenuItem.Description)
-                <span asp-validation-for="MenuItem.Description" class="text-danger"></span>
+                <label asp-for="Item.Description" class="control-label"></label>
+                @Html.TextAreaFor(m => m.Item.Description)
+                <span asp-validation-for="Item.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MenuItem.Image" class="control-label"></label>
+                <label asp-for="Item.Image" class="control-label"></label>
                 <input type="file" name="files" multiple class="form-control" />
-                <span asp-validation-for="MenuItem.Image" class="text-danger"></span>
+                <span asp-validation-for="Item.Image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MenuItem.CategoryId" class="control-label"></label>
-                <select asp-for="@Model.MenuItem.CategoryId" id="CategoryId" asp-items="Model.CategoryList.ToSelectListItem(Model.MenuItem.CategoryId)" class="form-control"></select>
-                <span asp-validation-for="MenuItem.CategoryId" class="text-danger"></span>
+                <label asp-for="Item.CategoryId" class="control-label"></label>
+                <select asp-for="@Model.Item.CategoryId" id="CategoryId" asp-items="Model.CategoryList.ToSelectListItem(Model.Item.CategoryId)" class="form-control"></select>
+                <span asp-validation-for="Item.CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MenuItem.SubCategoryId" class="control-label"></label>
-                <select asp-for="@Model.MenuItem.SubCategoryId" name="SubCategoryId" id="SubCategoryId" asp-items="@(new SelectList(string.Empty,"Id","Name"))" class="form-control"></select>
-                <span asp-validation-for="MenuItem.SubCategoryId" class="text-danger"></span>
+                <label asp-for="Item.SubCategoryId" class="control-label"></label>
+                <select asp-for="@Model.Item.SubCategoryId" name="SubCategoryId" id="SubCategoryId" asp-items="@(new SelectList(string.Empty,"Id","Name"))" class="form-control"></select>
+                <span asp-validation-for="Item.SubCategoryId" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label asp-for="MenuItem.Price" class="control-label"></label>
-                <input asp-for="MenuItem.Price" class="form-control" />
-                <span asp-validation-for="MenuItem.Price" class="text-danger"></span>
+                <label asp-for="Item.Price" class="control-label"></label>
+                <input asp-for="Item.Price" class="form-control" />
+                <span asp-validation-for="Item.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -50,7 +48,7 @@
         </form>
     </div>
     <div class="col-3 offset-1">
-        <img src="@Model.MenuItem.Image" width="100%" style="border-radius:5px;border: 1px solid #bbb9b9;" />
+        <img src="@Model.Item.Image" width="100%" style="border-radius:5px;border: 1px solid #bbb9b9;" />
     </div>
 </div>
 

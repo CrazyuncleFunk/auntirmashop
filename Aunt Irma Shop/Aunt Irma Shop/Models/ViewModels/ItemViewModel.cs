@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Aunt_Irma_Shop.Models.ViewModels
 {
-    public class CategorySubCategoryandMenuItemViewModel
+    public class ItemViewModel
     {
         public IEnumerable<Category> CategoryList { get; set; }
 
         public IEnumerable<SubCategory> SubCategoryList { get; set; }
-        public MenuItem MenuItem { get; set; }
+        public Item Item { get; set; }
 
         
     }

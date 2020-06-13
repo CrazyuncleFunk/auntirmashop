@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aunt_Irma_Shop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200609121302_addMenuItemToDB")]
-    partial class addMenuItemToDB
+    [Migration("20200613193918_addItemToDb")]
+    partial class addItemToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace Aunt_Irma_Shop.Data.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("Aunt_Irma_Shop.Models.MenuItem", b =>
+            modelBuilder.Entity("Aunt_Irma_Shop.Models.Item", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace Aunt_Irma_Shop.Data.Migrations
 
                     b.HasIndex("SubCategoryId");
 
-                    b.ToTable("MenuItem");
+                    b.ToTable("Item");
                 });
 
             modelBuilder.Entity("Aunt_Irma_Shop.Models.SubCategory", b =>
@@ -293,7 +293,7 @@ namespace Aunt_Irma_Shop.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Aunt_Irma_Shop.Models.MenuItem", b =>
+            modelBuilder.Entity("Aunt_Irma_Shop.Models.Item", b =>
                 {
                     b.HasOne("Aunt_Irma_Shop.Models.Category", "Category")
                         .WithMany()

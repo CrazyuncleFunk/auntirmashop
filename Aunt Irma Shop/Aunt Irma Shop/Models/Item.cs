@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Aunt_Irma_Shop.Models
 {
-    public class MenuItem
+    public class Item
     {
         [Key]
         public int Id { get; set; }
