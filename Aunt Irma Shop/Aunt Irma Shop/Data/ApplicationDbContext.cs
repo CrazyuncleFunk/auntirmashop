@@ -17,5 +17,6 @@ namespace Aunt_Irma_Shop.Data
         public DbSet<SubCategory> SubCategory { get; set; }
 
         public DbSet<Item> Item { get; set; }
+        public DbSet<Coupon> Coupon { get; set; }
     }
 }
