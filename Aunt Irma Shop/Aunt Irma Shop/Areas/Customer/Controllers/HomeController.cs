@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Aunt_Irma_Shop.Models;
+using Aunt_Irma_Shop.Models.ViewModels;
+using Aunt_Irma_Shop.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aunt_Irma_Shop.Controllers
 {
@@ -13,15 +16,23 @@ namespace Aunt_Irma_Shop.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _db;
+        public HomeController(ApplicationDbContext db, ILogger<HomeController> logger)
         {
+            _db = db;
             _logger = logger;
         }
+      
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IndexViewModel indexVM = new IndexViewModel
+            {
+                Category = await _db.Category.ToListAsync(),
+                SubCategory = await _db.SubCategory.ToListAsync(),
+                Item = await _db.Item.Include(i => i.Category).Include(i => i.SubCategory).ToListAsync()
+            };
+            return View(indexVM);
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,87 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model Aunt_Irma_Shop.Models.ViewModels.IndexViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<br />
+<br />
+
+<div class="container" style="height:100%;">
+    <div class="col-lg-2 float-lg-left ">
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a class="navbar-brand">Category</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <ul id="menu-filters" class="nav navbar-nav">
+                <li class="active text-dark nav-link" data-filter=".menu-restaurant">Show All</li>
+                @foreach (var category in Model.Category)
+                {
+                    <li class="dropdown  nav-link" data-filter=".@category.Name.Replace(" ",string.Empty)">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >@category.Name <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach (var subCategory in Model.SubCategory)
+                            {
+                                if (subCategory.CategoryId == category.Id)
+                                {
+                                    <li class="ml-1 mr-1" data-filter=".@subCategory.Name.Replace(" ",string.Empty)"><a href="#">@subCategory.Name</a></li>
+                                    
+                                };
+                            }
+                        </ul>
+                    </li>
+                }
+                
+            </ul>
+            
+
+        </nav>
+    </div>
+
+    <div class="col-lg-8 float-lg-right">
+
+        @foreach (var category in Model.Category)
+        {
+            @foreach (var subCategory in Model.SubCategory)
+            {
+                <div class="row" id="menu-wrapper">
+                    <partial name="_ThumbnailAreaPartial" model="@Model.Item.Where(u=>u.Category.Name.Equals(category.Name) && u.SubCategory.Name.Equals(subCategory.Name))" />
+                </div>
+            }
+        }
+    </div>
 </div>
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+        var posts = $('.post');
+
+        (function ($) {
+
+            $("#menu-filters li").click(function () {
+                $("#menu-filters li").removeClass('active text-primary');
+                $(this).addClass('active text-primary');
+
+                var selectedFilter = $(this).data("filter");
+
+                $(".menu-restaurant").fadeOut();
+
+                setTimeout(function () {
+                    $(selectedFilter).slideDown();
+                }, 300);
+            });
+
+
+
+        })(jQuery);
+
+    </script>
+}

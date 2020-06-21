@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aunt_Irma_Shop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200618151423_addCouponToDb")]
-    partial class addCouponToDb
+    [Migration("20200619195302_AddCoupon")]
+    partial class AddCoupon
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
