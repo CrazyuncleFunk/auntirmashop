@@ -1,11 +1,11 @@
 ﻿@model Aunt_Irma_Shop.Models.ViewModels.IndexViewModel
-
+@using Aunt_Irma_Shop.Models.ViewModels
 
 <br />
 <br />
 
 <div class="container" style="height:100%;">
-    <div class="col-lg-2 float-lg-left ">
+    <div class="col-lg-2 float-lg-left p-3 ">
         <nav class="navbar navbar-default" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -15,42 +15,48 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
 
-            <ul id="menu-filters" class="nav navbar-nav">
-                <li class="active text-dark nav-link" data-filter=".menu-restaurant">Show All</li>
+            <ul id="shop-filters" class="nav navbar-nav">
+                <li class="active text-dark nav-link filter" data-filter=".item-shop"><a class="active">Show All</a></li>
                 @foreach (var category in Model.Category)
                 {
-                    <li class="dropdown  nav-link" data-filter=".@category.Name.Replace(" ",string.Empty)">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >@category.Name <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                    <li class="dropdown  nav-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown">@category.Name <b class="caret"></b></a>
+                        <ul class="dropdown-menu border-0">
                             @foreach (var subCategory in Model.SubCategory)
                             {
                                 if (subCategory.CategoryId == category.Id)
                                 {
-                                    <li class="ml-1 mr-1" data-filter=".@subCategory.Name.Replace(" ",string.Empty)"><a href="#">@subCategory.Name</a></li>
-                                    
+                                    <li class="ml-1 mr-1" data-filter=".@category.Name.Replace(" ",string.Empty)@subCategory.Name.Replace(" ",string.Empty)">@subCategory.Name @category.Name</li>
+
                                 };
                             }
                         </ul>
                     </li>
                 }
-                
+
             </ul>
-            
+
 
         </nav>
     </div>
 
     <div class="col-lg-8 float-lg-right">
 
-        @foreach (var category in Model.Category)
+
+
+        @foreach (var subCategory in Model.SubCategory)
         {
-            @foreach (var subCategory in Model.SubCategory)
-            {
-                <div class="row" id="menu-wrapper">
-                    <partial name="_ThumbnailAreaPartial" model="@Model.Item.Where(u=>u.Category.Name.Equals(category.Name) && u.SubCategory.Name.Equals(subCategory.Name))" />
-                </div>
-            }
+
+            <div id="demo" class="row">
+
+                <partial name="_ThumbnailAreaPartial" model="@Model.Item.Where(u => u.SubCategory.Id.Equals(subCategory.Id))" />
+            </div>
         }
+
+
+
+
+
     </div>
 </div>
 
@@ -66,13 +72,14 @@
 
         (function ($) {
 
-            $("#menu-filters li").click(function () {
-                $("#menu-filters li").removeClass('active text-primary');
-                $(this).addClass('active text-primary');
+            $("#shop-filters li").click(function () {
+                $("#shop-filters li").removeClass('active');
+                $(this).addClass('active');
 
                 var selectedFilter = $(this).data("filter");
 
-                $(".menu-restaurant").fadeOut();
+                $(".item-shop").fadeOut();
+
 
                 setTimeout(function () {
                     $(selectedFilter).slideDown();
@@ -82,6 +89,6 @@
 
 
         })(jQuery);
-
+        
     </script>
 }

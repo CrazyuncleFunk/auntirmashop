@@ -72,37 +72,29 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             {
                 return View(ItemVM);
             }
-            _db.Item.Add(ItemVM.Item);
-            await _db.SaveChangesAsync();
-
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            var files = HttpContext.Request.Form.Files;
-
-            var menuItemFromDb = await _db.Item.FindAsync(ItemVM.Item.Id);
-
-            if (files.Count > 0)
+            
+            if (ModelState.IsValid)
             {
-                //files has been uploaded
-                var uploads = Path.Combine(webRootPath, "images");
-                var extension = Path.GetExtension(files[0].FileName);
-
-                using (var filesStream = new FileStream(Path.Combine(uploads, ItemVM.Item.Id + extension), FileMode.Create))
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count > 0)
                 {
-                    files[0].CopyTo(filesStream);
+                    byte[] p1 = null;
+                    using (var fs1 = files[0].OpenReadStream())
+                    {
+                        using (var ms1 = new MemoryStream())
+                        {
+                            fs1.CopyTo(ms1);
+                            p1 = ms1.ToArray();
+                        }
+                    }
+                    ItemVM.Item.Picture = p1;
                 }
-                menuItemFromDb.Image = @"\images\" + ItemVM.Item.Id + extension;
+                
+                _db.Item.Add(ItemVM.Item);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                //no file was uploaded, so use default
-                var uploads = Path.Combine(webRootPath, @"images\" + SD.DefaultImage);
-                System.IO.File.Copy(uploads, webRootPath + @"\images\" + ItemVM.Item.Id + ".png");
-                menuItemFromDb.Image = @"\images\" + ItemVM.Item.Id + ".png";
-            }
-
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+            return View(ItemVM);
         }
 
         // GET: MenuItem/Edit/5
@@ -140,42 +132,35 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
 
             //Work on the image saving section
 
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            var files = HttpContext.Request.Form.Files;
-
-            var menuItemFromDb = await _db.Item.FindAsync(ItemVM.Item.Id);
-
-            if (files.Count > 0)
+            var ItemFromDb = await _db.Item.FindAsync(ItemVM.Item.Id);
+            if (ModelState.IsValid)
             {
-                //New Image has been uploaded
-                var uploads = Path.Combine(webRootPath, "images");
-                var extension_new = Path.GetExtension(files[0].FileName);
-
-                //Delete the original file
-                var imagePath = Path.Combine(webRootPath, menuItemFromDb.Image.TrimStart('\\'));
-
-                if (System.IO.File.Exists(imagePath))
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count > 0)
                 {
-                    System.IO.File.Delete(imagePath);
+                    byte[] p1 = null;
+                    using (var fs1 = files[0].OpenReadStream())
+                    {
+                        using (var ms1 = new MemoryStream())
+                        {
+                            fs1.CopyTo(ms1);
+                            p1 = ms1.ToArray();
+                        }
+                    }
+                    ItemFromDb.Picture = p1;
                 }
 
-                //we will upload the new file
-                using (var filesStream = new FileStream(Path.Combine(uploads, ItemVM.Item.Id + extension_new), FileMode.Create))
-                {
-                    files[0].CopyTo(filesStream);
-                }
-                menuItemFromDb.Image = @"\images\" + ItemVM.Item.Id + extension_new;
+                ItemFromDb.Name = ItemVM.Item.Name;
+                ItemFromDb.Description = ItemVM.Item.Description;
+                ItemFromDb.Price = ItemVM.Item.Price;
+                ItemFromDb.CategoryId = ItemVM.Item.CategoryId;
+                ItemFromDb.SubCategoryId = ItemVM.Item.SubCategoryId;
+
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
             }
-
-            menuItemFromDb.Name = ItemVM.Item.Name;
-            menuItemFromDb.Description = ItemVM.Item.Description;
-            menuItemFromDb.Price = ItemVM.Item.Price;
-            menuItemFromDb.CategoryId = ItemVM.Item.CategoryId;
-            menuItemFromDb.SubCategoryId = ItemVM.Item.SubCategoryId;
-
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+            return View(ItemVM);
         }
 
         // GET: MenuItem/Delete/5
@@ -185,12 +170,12 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Item menuItem = await _db.Item.Include(s => s.Category).Include(s => s.SubCategory).FirstOrDefaultAsync(s => s.Id == id);
-            if (menuItem == null)
+            Item item = await _db.Item.Include(s => s.Category).Include(s => s.SubCategory).FirstOrDefaultAsync(s => s.Id == id);
+            if (item == null)
             {
                 return NotFound();
             }
-            return View(menuItem);
+            return View(item);
         }
 
         // POST: MenuItem/Delete/5
@@ -203,32 +188,9 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
                 return NotFound();
             }
            
-
-            //Work on the image saving section
-
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            var files = HttpContext.Request.Form.Files;
-
-            var menuItemFromDb = await _db.Item.FindAsync(id);
-
-
-            if (!ModelState.IsValid)
-            {
-
-                return View(menuItemFromDb);
-            }
-
-            //Delete the original file
-            var imagePath = Path.Combine(webRootPath, menuItemFromDb.Image.TrimStart('\\'));
-
-                if (System.IO.File.Exists(imagePath))
-                {
-                    System.IO.File.Delete(imagePath);
-                }
-
-            _db.Remove(menuItemFromDb);
+            var ItemFromDb = await _db.Item.FindAsync(id);
+            _db.Remove(ItemFromDb);
             await _db.SaveChangesAsync();
-
             return RedirectToAction(nameof(Index));
         }
     }

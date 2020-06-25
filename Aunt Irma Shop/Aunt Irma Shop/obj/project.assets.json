@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "cloudscribe.Pagination.Models/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Linq.Queryable": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.6/cloudscribe.Pagination.Models.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/cloudscribe.Pagination.Models.dll": {}
+        }
+      },
+      "cloudscribe.Web.Pagination/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Linq.Queryable": "4.3.0",
+          "cloudscribe.Pagination.Models": "1.0.5"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/cloudscribe.Web.Pagination.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/cloudscribe.Web.Pagination.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.1": {
         "type": "package",
         "compile": {
@@ -1687,6 +1716,25 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
+      "System.Linq.Queryable/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.0/System.Linq.Queryable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Linq.Queryable.dll": {}
+        }
+      },
       "System.Memory/4.5.3": {
         "type": "package",
         "compile": {
@@ -2649,6 +2697,30 @@
     }
   },
   "libraries": {
+    "cloudscribe.Pagination.Models/1.0.5": {
+      "sha512": "Nqvxu7mKr3A2G8cl8a0aZGYEddQcvcBTZ/FgTLh2lKJmA3TDk8yA7H+LCEUeHC84wALnRHyV510atxoVWNE5mQ==",
+      "type": "package",
+      "path": "cloudscribe.pagination.models/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cloudscribe.pagination.models.1.0.5.nupkg.sha512",
+        "cloudscribe.pagination.models.nuspec",
+        "lib/netstandard1.6/cloudscribe.Pagination.Models.dll"
+      ]
+    },
+    "cloudscribe.Web.Pagination/3.0.0": {
+      "sha512": "KdsAUfdqIpCmUTNRfL8GI8+4+CTHgwN/IdBrxyr6TGrjb6tlqSs3eDWCnNbBEI8ObxY9FHguV8z34OGta+ChsA==",
+      "type": "package",
+      "path": "cloudscribe.web.pagination/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cloudscribe.web.pagination.3.0.0.nupkg.sha512",
+        "cloudscribe.web.pagination.nuspec",
+        "lib/netcoreapp3.0/cloudscribe.Web.Pagination.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.1": {
       "sha512": "sFfUegR52PSmTcT2eH1YywPdXLwx0Tt4S54yjqIP5+R/BmZKbEfCOvaGqAwKYbpwztHTua013pPeDKP8DmuGtw==",
       "type": "package",
@@ -5980,6 +6052,65 @@
         "system.linq.expressions.nuspec"
       ]
     },
+    "System.Linq.Queryable/4.3.0": {
+      "sha512": "In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+      "type": "package",
+      "path": "system.linq.queryable/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/monoandroid10/_._",
+        "lib/monotouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Linq.Queryable.dll",
+        "lib/netstandard1.3/System.Linq.Queryable.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/monoandroid10/_._",
+        "ref/monotouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/System.Linq.Queryable.dll",
+        "ref/netcore50/System.Linq.Queryable.xml",
+        "ref/netcore50/de/System.Linq.Queryable.xml",
+        "ref/netcore50/es/System.Linq.Queryable.xml",
+        "ref/netcore50/fr/System.Linq.Queryable.xml",
+        "ref/netcore50/it/System.Linq.Queryable.xml",
+        "ref/netcore50/ja/System.Linq.Queryable.xml",
+        "ref/netcore50/ko/System.Linq.Queryable.xml",
+        "ref/netcore50/ru/System.Linq.Queryable.xml",
+        "ref/netcore50/zh-hans/System.Linq.Queryable.xml",
+        "ref/netcore50/zh-hant/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/System.Linq.Queryable.dll",
+        "ref/netstandard1.0/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/de/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/es/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/fr/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/it/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/ja/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/ko/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/ru/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/zh-hans/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/zh-hant/System.Linq.Queryable.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.linq.queryable.4.3.0.nupkg.sha512",
+        "system.linq.queryable.nuspec"
+      ]
+    },
     "System.Memory/4.5.3": {
       "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
@@ -8591,7 +8722,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 3.1.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.1",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.1",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3",
+      "cloudscribe.Web.Pagination >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -8600,11 +8732,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
+      "projectUniqueName": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
       "projectName": "Aunt Irma Shop",
-      "projectPath": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
+      "projectPath": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
       "packagesPath": "C:\\Users\\erind\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\obj\\",
+      "outputPath": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\erind\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8654,6 +8786,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.3, )"
+          },
+          "cloudscribe.Web.Pagination": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           }
         },
         "imports": [
@@ -8674,7 +8810,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

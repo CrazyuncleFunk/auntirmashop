@@ -18,7 +18,7 @@ namespace Aunt_Irma_Shop.Models
 
         public string Description { get; set; }
 
-        public string Image { get; set; }
+        public byte[] Picture { get; set; }
         [Required]
         [Display(Name = "SubCategory")]
         public int SubCategoryId { get; set; }
