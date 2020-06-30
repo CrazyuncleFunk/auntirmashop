@@ -9,7 +9,7 @@
         @foreach (var item in Model)
         {
            
-                <div class="border border-info rounded col-12" style="margin-bottom:10px;margin-top:10px;padding:10px;">
+                <div class="border border-info rounded col-12" >
                     <div class="row">
                         <div class="col-md-3 col-sm-12">
                             @if (item.Picture == null)
@@ -31,7 +31,7 @@
                         <div class="col-md-9 col-sm-12">
                             <div class="row pr-3">
                                 <div class="col-8">
-                                    <label class="text-primary" style="font-size:21px;">@item.Name</label>
+                                    <label class="text-primary " style="font-size:21px;">@item.Name</label>
 
                                 </div>
                                 <div class="col-4 text-right" style="color:maroon">
@@ -39,12 +39,22 @@
                                 </div>
                             </div>
 
-                            <div class="roww col-12 text-justify d-none d-md-block">
+                            <div class="row col-12 text-justify d-none d-md-block">
                                 <p>@Html.Raw(item.Description)</p>
                             </div>
-                            <div class="col-md-3 col-sm-12 offset-md-9 text-center">
-                                <a asp-action="Details" class="btn btn-success form-control" asp-route-id="@item.Id">Details</a>
+                            <div class="row">
+
+                                <div class="col-sm-4 col-md-3 text-center">
+                                    <input type="number" value="1" class="form-control" min="1" />
+                                </div>
+                                <div class="col-sm-8 col-md-5 text-center">
+                                    <a asp-action="Details" class="btn btn-success form-control" asp-route-id="@item.Id">Add To Basket</a>
+                                </div>
+                                <div class="col-sm-12 col-md-4 text-center">
+                                    <a asp-action="Details" class="btn btn-info form-control" asp-route-id="@item.Id">Details</a>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

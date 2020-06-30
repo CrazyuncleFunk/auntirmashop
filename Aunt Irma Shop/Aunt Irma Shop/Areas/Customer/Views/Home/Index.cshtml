@@ -4,23 +4,19 @@
 <br />
 <br />
 
-<div class="container" style="height:100%;">
-    <div class="col-lg-2 float-lg-left p-3 ">
-        <nav class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
 
-                <a class="navbar-brand">Category</a>
-            </div>
+    <div class="col-lg-2 float-lg-left col-sm-12 p-md-3 ">
+        <nav class="navbar navbar-default " role="navigation">
+           
 
             <!-- Collect the nav links, forms, and other content for toggling -->
 
-            <ul id="shop-filters" class="nav navbar-nav">
+            <ul id="shop-filters" class="nav navbar-nav d-inline-flex flex-row flex-lg-column">
                 <li class="active text-dark nav-link filter" data-filter=".item-shop"><a class="active">Show All</a></li>
                 @foreach (var category in Model.Category)
                 {
-                    <li class="dropdown  nav-link">
-                        <a class="dropdown-toggle" data-toggle="dropdown">@category.Name <b class="caret"></b></a>
+                    <li class="dropdown  nav-link pl-3 pl-lg-0">
+                        <a class="dropdown-toggle " data-toggle="dropdown">@category.Name <b class="caret"></b></a>
                         <ul class="dropdown-menu border-0">
                             @foreach (var subCategory in Model.SubCategory)
                             {
@@ -58,7 +54,7 @@
 
 
     </div>
-</div>
+
 
 
 @section Scripts{

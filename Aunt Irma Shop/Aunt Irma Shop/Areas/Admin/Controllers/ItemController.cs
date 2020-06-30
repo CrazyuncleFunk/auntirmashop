@@ -37,8 +37,8 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
         // GET: MenuItem
         public async Task<ActionResult> Index()
         {
-            var menuItemList = await _db.Item.Include(m => m.Category).Include(m => m.SubCategory).ToListAsync();
-            return View(menuItemList);
+            var itemList = await _db.Item.Include(m => m.Category).Include(m => m.SubCategory).ToListAsync();
+            return View(itemList);
         }
 
         // GET: MenuItem/Details/5
@@ -48,12 +48,12 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Item menuItem = await _db.Item.Include(s => s.Category).Include(s => s.SubCategory).FirstOrDefaultAsync(s => s.Id == id);
-            if (menuItem == null)
+            Item item = await _db.Item.Include(s => s.Category).Include(s => s.SubCategory).FirstOrDefaultAsync(s => s.Id == id);
+            if (item == null)
             {
                 return NotFound();
             }
-            return View(menuItem);
+            return View(item);
         }
         // GET: MenuItem/Create
         public ActionResult Create()

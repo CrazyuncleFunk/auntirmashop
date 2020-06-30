@@ -35,9 +35,18 @@ namespace Aunt_Irma_Shop.Controllers
             return View(indexVM);
         }
 
-        public IActionResult Privacy()
+        public async  Task<IActionResult> Details(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return NotFound();
+            }
+            Item item = await _db.Item.Include(s => s.Category).Include(s => s.SubCategory).FirstOrDefaultAsync(i => i.Id == id);
+            if(item == null)
+            {
+                return NotFound();
+            }
+            return View(item);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

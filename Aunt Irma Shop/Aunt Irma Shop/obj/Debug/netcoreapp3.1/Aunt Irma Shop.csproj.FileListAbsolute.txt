@@ -177,5 +177,18 @@ C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.csprojAssemblyReference.cache
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\cloudscribe.Pagination.Models.dll
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\cloudscribe.Web.Pagination.dll
-C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.genruntimeconfig.cache
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.UserSecrets.dll
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.csproj.CoreCompileInputs.cache
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\bin\Debug\netcoreapp3.1\SendGrid.dll

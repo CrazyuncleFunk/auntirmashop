@@ -18,5 +18,6 @@ namespace Aunt_Irma_Shop.Data
 
         public DbSet<Item> Item { get; set; }
         public DbSet<Coupon> Coupon { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }

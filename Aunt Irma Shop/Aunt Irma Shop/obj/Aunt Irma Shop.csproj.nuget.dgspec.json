@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj": {}
+    "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj": {
+    "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
+        "projectUniqueName": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
         "projectName": "Aunt Irma Shop",
-        "projectPath": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
+        "projectPath": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
         "packagesPath": "C:\\Users\\erind\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\obj\\",
+        "outputPath": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\erind\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,9 +58,21 @@
               "target": "Package",
               "version": "[3.1.1, )"
             },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.17.0, )"
             },
             "cloudscribe.Web.Pagination": {
               "target": "Package",
@@ -85,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
