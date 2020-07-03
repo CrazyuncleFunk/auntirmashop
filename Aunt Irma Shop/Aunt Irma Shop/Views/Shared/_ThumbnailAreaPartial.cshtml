@@ -5,11 +5,11 @@
 @if (Model.Count() > 0 )
 {
     <div class="col-12 post @Model.FirstOrDefault().Category.Name.Replace(" ",string.Empty) @Model.FirstOrDefault().Category.Name.Replace(" ",string.Empty)@Model.FirstOrDefault().SubCategory.Name.Replace(" ",string.Empty) item-shop">
-
+        
         @foreach (var item in Model)
         {
            
-                <div class="border border-info rounded col-12" >
+                <div class="border border-info rounded col-12 p-3 mb-3 " >
                     <div class="row">
                         <div class="col-md-3 col-sm-12">
                             @if (item.Picture == null)
@@ -65,6 +65,6 @@
 
 
         }
-        <div class="p-4"></div>
+        
     </div>
 }

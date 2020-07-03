@@ -8921,11 +8921,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
+      "projectUniqueName": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
       "projectName": "Aunt Irma Shop",
-      "projectPath": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
+      "projectPath": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\Aunt Irma Shop.csproj",
       "packagesPath": "C:\\Users\\erind\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erind\\Source\\Repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\obj\\",
+      "outputPath": "C:\\Users\\erind\\source\\repos\\CrazyuncleFunk\\auntirmashop\\Aunt Irma Shop\\Aunt Irma Shop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\erind\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9011,7 +9011,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -23,7 +23,8 @@
                 <img src="@imgsrc" style="max-height:100%; width:100%;" />
             }
         </div>
-        <div class="col-md-7 offset-md-1 col-sm-12 float-right">
+        <br />
+        <div class="mt-md-3 col-md-7 offset-md-1 col-sm-12 float-right">
             <h3>@Html.DisplayFor(model => model.Name)</h3>
             @Html.Raw(Model.Description)
         </div>
@@ -43,9 +44,9 @@
 
 </div>
 <div class="row">
-    <input type="number" value="1" class="form-control col-1 offset-6" min="1"/>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success col-2 ">Add To Basket</a> 
-    <a asp-action="Index" class="btn btn-primary col-2">Back to List</a>
+    <input type="number" value="1" class="form-control offset-1 col-4 col-md-2 offset-md-5 col-lg-1 offset-lg-6" min="1"/>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="col-6   btn btn-success col-md-4 col-lg-2 ">Add To Basket</a> 
+    <a asp-action="Index" class="btn btn-primary col-10 offset-1 offset-md-5 col-md-6 offset-lg-0 col-lg-2">Back to List</a>
 </div>
 @section Scripts{
     <script>

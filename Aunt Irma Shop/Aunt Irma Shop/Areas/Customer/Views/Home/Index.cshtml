@@ -43,7 +43,7 @@
         @foreach (var subCategory in Model.SubCategory)
         {
 
-            <div id="demo" class="row">
+            <div id="demo" class="">
 
                 <partial name="_ThumbnailAreaPartial" model="@Model.Item.Where(u => u.SubCategory.Id.Equals(subCategory.Id))" />
             </div>
