@@ -47,6 +47,19 @@ namespace Aunt_Irma_Shop
             services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddRazorPages();
+            services.ConfigureApplicationCookie(options =>
+
+            {
+
+                options.LoginPath = $"/Identity/Account/Login";
+
+                options.LogoutPath = $"/Identity/Account/Logout";
+
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+
+            });
+
+
 
         }
 

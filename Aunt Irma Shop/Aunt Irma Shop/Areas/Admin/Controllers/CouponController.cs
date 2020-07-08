@@ -5,12 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Aunt_Irma_Shop.Data;
 using Aunt_Irma_Shop.Models;
+using Aunt_Irma_Shop.Utillity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aunt_Irma_Shop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.ManagerUser)]
     [Area("Admin")]
     public class CouponController : Controller
     {

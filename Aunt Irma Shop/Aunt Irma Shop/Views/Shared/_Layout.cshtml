@@ -14,9 +14,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow text-left">
             <div class="container">
-                <img src="~/images/auntirmalogo.jpg" style="width:50px;"/>
+                <img src="~/images/auntirmalogo.jpg" style="width:50px;" />
                 <a class="navbar-brand mb-2 ml-1" asp-area="" asp-controller="Home" asp-action="Index" style="font-family: 'Rozha One';font-size:30px;"> Aunt Irma's</a>
-                
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,19 +27,25 @@
                         <li class="nav-item float-right">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Shop</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle nav-link text-dark" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Manage Content
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="SubCategory" asp-action="Index">Sub-Category</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Item" asp-action="Index">Items</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Coupon" asp-action="Index">Coupons</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Users</a>
-                            </div>
+                        @if (User.IsInRole(Aunt_Irma_Shop.Utillity.SD.ManagerUser))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle nav-link text-dark" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Manage Content
+                                </a>
 
-                        </li>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="SubCategory" asp-action="Index">Sub-Category</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Item" asp-action="Index">Items</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Coupon" asp-action="Index">Coupons</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Users</a>
+                                </div>
+
+
+
+                            </li>
+                        }
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle nav-link text-dark" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Orders
@@ -47,7 +53,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Order History</a>
                                 <a class="dropdown-item" href="#">Order Status</a>
-                                
+
                             </div>
 
                         </li>
@@ -64,6 +70,11 @@
                             </div>
 
                         </li>
+                        <li style="color:white">
+                            <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="nav-link">
+                                <i class="fas fa-shopping-cart"></i> &nbsp; (0)
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -75,7 +86,7 @@
         </main>
     </div>
 
-    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

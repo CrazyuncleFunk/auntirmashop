@@ -13,9 +13,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 using Aunt_Irma_Shop.Utillity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Aunt_Irma_Shop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.ManagerUser)]
     [Area("Admin")]
     public class ItemController : Controller
     {

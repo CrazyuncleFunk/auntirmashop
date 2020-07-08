@@ -4,12 +4,15 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Aunt_Irma_Shop.Data;
+using Aunt_Irma_Shop.Utillity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aunt_Irma_Shop.Areas.Admin.Controllers
 {
+    [Authorize(Roles = SD.ManagerUser)]
     [Area("Admin")]
     public class UserController : Controller
     {
@@ -28,79 +31,41 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             return View(await _db.ApplicationUser.Where(u=>u.Id != claim.Value).ToListAsync());
         }
 
-        // GET: User/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: User/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: User/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: User/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: User/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         // GET: User/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Lock(string id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var applicationUser = await _db.ApplicationUser.FirstOrDefaultAsync(m => m.Id == id);
+            if (applicationUser == null)
+            {
+                return NotFound();
+            }
+            applicationUser.LockoutEnd = DateTime.Now.AddYears(1000);
+
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
-        // POST: User/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Unlock(string id)
         {
-            try
+            if (id == null)
             {
-                // TODO: Add delete logic here
+                return NotFound();
+            }
+            var applicationUser = await _db.ApplicationUser.FirstOrDefaultAsync(m => m.Id == id);
+            if (applicationUser == null)
+            {
+                return NotFound();
+            }
+            applicationUser.LockoutEnd = DateTime.Now;
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }
