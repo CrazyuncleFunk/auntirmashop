@@ -9,6 +9,9 @@ using Aunt_Irma_Shop.Models;
 using Aunt_Irma_Shop.Models.ViewModels;
 using Aunt_Irma_Shop.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
 namespace Aunt_Irma_Shop.Controllers
 {
@@ -34,8 +37,8 @@ namespace Aunt_Irma_Shop.Controllers
             };
             return View(indexVM);
         }
-
-        public async  Task<IActionResult> Details(int? id)
+        
+        public async Task<IActionResult> Details(int? id)
         {
             if(id == null)
             {
@@ -46,9 +49,55 @@ namespace Aunt_Irma_Shop.Controllers
             {
                 return NotFound();
             }
-            return View(item);
+            ShoppingCart cartObj = new ShoppingCart()
+            {
+                Item = item,
+                ItemId = item.Id
+            };
+            return View(cartObj);
         }
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> Details(ShoppingCart cart)
+        {
+            cart.Id = 0;
+            if (ModelState.IsValid)
+            {
+                var claimsId = (ClaimsIdentity)this.User.Identity;
+                var claim = claimsId.FindFirst(ClaimTypes.NameIdentifier);
+                cart.ApplicationUserId = claim.Value;
 
+                ShoppingCart cartDb = await _db.ShoppingCart.Where(c => c.ApplicationUserId == cart.ApplicationUserId 
+                                                                        && c.ItemId == cart.ItemId).FirstOrDefaultAsync();
+                if(cartDb == null)
+                {
+                    await _db.ShoppingCart.AddAsync(cart);
+                }
+                else
+                {
+                    cartDb.Count = cartDb.Count + cart.Count;
+                }
+                await _db.SaveChangesAsync();
+
+                var count = _db.ShoppingCart.Where(c => c.ApplicationUserId == cart.ApplicationUserId).ToList().Count();
+                HttpContext.Session.SetInt32("ssCartCount", count);
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                Item item = await _db.Item.Include(s => s.Category).Include(s => s.SubCategory).FirstOrDefaultAsync(i => i.Id == cart.ItemId);
+               
+                ShoppingCart cartObj = new ShoppingCart()
+                {
+                    Item = item,
+                    ItemId = item.Id
+                };
+
+                return View(cartObj);
+            }
+            
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

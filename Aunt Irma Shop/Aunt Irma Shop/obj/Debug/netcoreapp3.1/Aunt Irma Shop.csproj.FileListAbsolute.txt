@@ -198,5 +198,3 @@ C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\User\Index.cshtml.g.cs
-C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.csproj.CoreCompileInputs.cache
-C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.genruntimeconfig.cache
