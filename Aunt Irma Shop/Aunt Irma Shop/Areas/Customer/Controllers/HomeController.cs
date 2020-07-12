@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace Aunt_Irma_Shop.Controllers
 {
@@ -35,9 +36,68 @@ namespace Aunt_Irma_Shop.Controllers
                 SubCategory = await _db.SubCategory.ToListAsync(),
                 Item = await _db.Item.Include(i => i.Category).Include(i => i.SubCategory).ToListAsync()
             };
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+          
+            if(claim == null && HttpContext.Session.GetString("ssShoppingCart") == null)
+            {
+                var cart = new List<ShoppingCart>();
+                HttpContext.Session.SetString("ssShoppingCart", JsonConvert.SerializeObject(cart));
+            }
+
+            if (claim != null)
+            {
+                var count = _db.ShoppingCart.Where(u => u.ApplicationUserId == claim.Value).ToList().Count();
+                HttpContext.Session.SetInt32("ssCartCount", count);
+            }
+
             return View(indexVM);
         }
-        
+        public IActionResult AddToBasket(Item item,int count)
+        {
+            
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (claim == null)
+            {
+                if (HttpContext.Session.GetString("ssShoppingCart") == null)
+                {
+                    var cart = new List<ShoppingCart>();
+                    var cartObj = new ShoppingCart()
+                    {
+                        Item = item,
+                        ItemId = item.Id
+                    };
+                    cart.Add(cartObj);
+                    HttpContext.Session.SetString("ssShoppingCart", JsonConvert.SerializeObject(cart));
+                }
+                else
+                {
+                    var cart = JsonConvert.DeserializeObject<List<ShoppingCart>>("ssShoppingCart");
+                    var cartObj = new ShoppingCart()
+                    {
+                        Item = item,
+                        ItemId = item.Id
+                    };
+                    cart.Add(cartObj);
+                    HttpContext.Session.SetString("ssShoppingCart", JsonConvert.SerializeObject(cart));
+                }
+               
+            }
+
+            if (claim != null)
+            {
+                var cartCount = _db.ShoppingCart.Where(u => u.ApplicationUserId == claim.Value).ToList().Count();
+                HttpContext.Session.SetInt32("ssCartCount", cartCount);
+            }
+            else
+            {
+                HttpContext.Session.SetInt32("ssCartCount", cartCount);
+            }
+
+            
+        }
         public async Task<IActionResult> Details(int? id)
         {
             if(id == null)

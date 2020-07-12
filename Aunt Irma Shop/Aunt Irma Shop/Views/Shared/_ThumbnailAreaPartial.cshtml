@@ -2,69 +2,69 @@
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@if (Model.Count() > 0 )
+@if (Model.Count() > 0)
 {
     <div class="col-12 post @Model.FirstOrDefault().Category.Name.Replace(" ",string.Empty) @Model.FirstOrDefault().Category.Name.Replace(" ",string.Empty)@Model.FirstOrDefault().SubCategory.Name.Replace(" ",string.Empty) item-shop">
-        
+
         @foreach (var item in Model)
         {
-           
-                <div class="border border-info rounded col-12 p-3 mb-3 " >
-                    <div class="row">
-                        <div class="col-md-3 col-sm-12">
-                            @if (item.Picture == null)
-                            {
-                                
-                                <img src="~/images/AuntIrmaLogo.JPEG"  style="max-height:100%; width:100%;" />
-                            }
-                            else
-                            {
-                                var base64 = Convert.ToBase64String(item.Picture);
-                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
 
-                                <img src="@imgsrc" style="max-height:100%; width:100%;" />
-                            }
+            <div class="border border-info rounded col-12 p-3 mb-3 ">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        @if (item.Picture == null)
+                        {
+
+                            <img src="~/images/AuntIrmaLogo.JPEG" style="max-height:100%; width:100%;" />
+                        }
+                        else
+                        {
+                            var base64 = Convert.ToBase64String(item.Picture);
+                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+
+                            <img src="@imgsrc" style="max-height:100%; width:100%;" />
+                        }
 
 
 
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <div class="row pr-3">
+                            <div class="col-8">
+                                <label class="text-primary " style="font-size:21px;">@item.Name</label>
+
+                            </div>
+                            <div class="col-4 text-right" style="color:maroon">
+                                <label style="font-size:21px;">£ @item.Price</label>
+                            </div>
                         </div>
-                        <div class="col-md-9 col-sm-12">
-                            <div class="row pr-3">
-                                <div class="col-8">
-                                    <label class="text-primary " style="font-size:21px;">@item.Name</label>
 
-                                </div>
-                                <div class="col-4 text-right" style="color:maroon">
-                                    <label style="font-size:21px;">£ @item.Price</label>
-                                </div>
-                            </div>
-
-                            <div class="row col-12 text-justify d-none d-md-block">
-                                <p>@Html.Raw(item.Description)</p>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-sm-4 col-md-3 text-center">
-                                    <input type="number" value="1" class="form-control" min="1" />
-                                </div>
-                                <div class="col-sm-8 col-md-5 text-center">
-                                    <a asp-action="Details" class="btn btn-success form-control" asp-route-id="@item.Id">Add To Basket</a>
-                                </div>
-                                <div class="col-sm-12 col-md-4 text-center">
-                                    <a asp-action="Details" class="btn btn-info form-control" asp-route-id="@item.Id">Details</a>
-                                </div>
-                            </div>
-                            
+                        <div class="row col-12 text-justify d-none d-md-block">
+                            <p>@Html.Raw(item.Description)</p>
                         </div>
+                        <div class="row">
+
+                            <div class="col-sm-4 col-md-3 text-center">
+                                <input type="number" value="1" class="form-control" min="1" />
+                            </div>
+                            <div class="col-sm-8 col-md-5 text-center">
+                                <a asp-action="Details" class="btn btn-success form-control" asp-route-id="@item.Id">Add To Basket</a>
+                            </div>
+                            <div class="col-sm-12 col-md-4 text-center">
+                                <a asp-action="Details" class="btn btn-info form-control" asp-route-id="@item.Id">Details</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            
+            </div>
+
 
 
 
 
 
         }
-        
+
     </div>
 }

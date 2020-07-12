@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using WebPWrecover.Services;
 using Aunt_Irma_Shop.Services;
+using Microsoft.Extensions.Options;
 
 namespace Aunt_Irma_Shop
 {
@@ -59,7 +60,13 @@ namespace Aunt_Irma_Shop
 
             });
 
+            services.AddSession(options =>
+            {
+                options.Cookie.IsEssential = true;
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
 
+            });
 
         }
 
@@ -81,6 +88,7 @@ namespace Aunt_Irma_Shop
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();
