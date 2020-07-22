@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Aunt_Irma_Shop.Data;
+using Microsoft.Extensions.Logging;
 using Aunt_Irma_Shop.Models;
 using Aunt_Irma_Shop.Models.ViewModels;
+using Aunt_Irma_Shop.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using Aunt_Irma_Shop.Utillity;
+using System.Text;
 
-namespace Aunt_Irma_Shop.Areas.Admin.Controllers
+namespace Aunt_Irma_Shop.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class OrderController : Controller
@@ -82,7 +85,7 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
 
             return View(orderListVM);
         }
-        [Authorize(Roles = SD.KitchenUser + "," + SD.ManagerUser)]
+        [Authorize(Roles = SD.AssistantUser + "," + SD.ManagerUser)]
         public async Task<IActionResult> ManageOrder()
         {
             List<OrderDetailsViewModel> orderDetailsVM = new List<OrderDetailsViewModel>();
@@ -123,7 +126,7 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
 
             return PartialView("_OrderStatus", orderHeader);
         }
-        [Authorize(Roles = SD.KitchenUser + "," + SD.ManagerUser)]
+        [Authorize(Roles = SD.AssistantUser + "," + SD.ManagerUser)]
         public async Task<IActionResult> OrderPrepare(int OrderId)
         {
             OrderHeader orderHeader = await _db.OrderHeader.FindAsync(OrderId);
@@ -131,16 +134,16 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction("ManageOrder", "Order");
         }
-        [Authorize(Roles = SD.KitchenUser + "," + SD.ManagerUser)]
+        [Authorize(Roles = SD.AssistantUser + "," + SD.ManagerUser)]
         public async Task<IActionResult> OrderReady(int OrderId)
         {
             OrderHeader orderHeader = await _db.OrderHeader.FindAsync(OrderId);
-            orderHeader.Status = SD.StatusReady;
+            orderHeader.Status = SD.StatusDispatched;
             await _db.SaveChangesAsync();
 
             return RedirectToAction("ManageOrder", "Order");
         }
-        [Authorize(Roles = SD.KitchenUser + "," + SD.ManagerUser)]
+        [Authorize(Roles = SD.AssistantUser + "," + SD.ManagerUser)]
         public async Task<IActionResult> OrderCancel(int OrderId)
         {
             OrderHeader orderHeader = await _db.OrderHeader.FindAsync(OrderId);
@@ -203,7 +206,7 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             }
             else
             {
-                OrderHeaderList = await _db.OrderHeader.Include(o => o.ApplicationUser).Where(u => u.Status == SD.StatusReady).ToListAsync();
+                OrderHeaderList = await _db.OrderHeader.Include(o => o.ApplicationUser).Where(u => u.Status == SD.StatusDispatched).ToListAsync();
             }
             foreach (OrderHeader item in OrderHeaderList)
             {
@@ -233,7 +236,7 @@ namespace Aunt_Irma_Shop.Areas.Admin.Controllers
             return View(orderListVM);
         }
 
-        [Authorize(Roles = SD.FrontDeskUser + "," + SD.ManagerUser)]
+        [Authorize(Roles = SD.AssistantUser + "," + SD.ManagerUser)]
         [HttpPost]
         [ActionName("OrderPickup")]
         public async Task<IActionResult> OrderPickupPost(int orderId)
