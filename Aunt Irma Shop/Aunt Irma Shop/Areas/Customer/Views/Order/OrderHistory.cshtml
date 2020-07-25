@@ -14,7 +14,9 @@
             <h2 class="text-info"> Past Order List</h2>
         </div>
         <div class="col-6 text-right">
-            <partial name="_CreateButtonPartial" />
+            <p>
+                <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> &nbsp; Create New</a>
+            </p>
         </div>
     </div>
     <br />
@@ -79,10 +81,10 @@
                     </tr>
                 }
             </table>
-            <divi page-model="@Model.PagingInfo" page-classes-enabled="true" page-class="btn border"
+            <div page-model="@Model.PagingInfo" page-classes-enabled="true" page-class="btn border"
                   page-class-normal="btn btn-light" page-class-selected="btn btn-info active"
                   class="btn-group float-right">
-            </divi>
+            </div>
             <br />
         }
         else
