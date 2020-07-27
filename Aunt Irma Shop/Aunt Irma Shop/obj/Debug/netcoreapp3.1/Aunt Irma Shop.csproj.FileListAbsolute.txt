@@ -202,3 +202,6 @@ C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\ManageOrder.cshtml.g.cs
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Confirm.cshtml.g.cs
 C:\Users\erind\source\repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\OrderPickup.cshtml.g.cs
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.csproj.CoreCompileInputs.cache
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Aunt Irma Shop.genruntimeconfig.cache
+C:\Users\erind\Source\Repos\CrazyuncleFunk\auntirmashop\Aunt Irma Shop\Aunt Irma Shop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Cart\Index.cshtml.g.cs
