@@ -78,6 +78,10 @@
               "target": "Package",
               "version": "[9.17.0, )"
             },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[37.26.0, )"
+            },
             "cloudscribe.Web.Pagination": {
               "target": "Package",
               "version": "[3.0.0, )"

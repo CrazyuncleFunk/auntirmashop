@@ -11,7 +11,8 @@ using Aunt_Irma_Shop.Data;
 using Aunt_Irma_Shop.Models;
 using Aunt_Irma_Shop.Models.ViewModels;
 using Aunt_Irma_Shop.Utillity;
-//using Stripe;
+using Stripe;
+
 
 namespace Aunt_Irma_Shop.Areas.Customer.Controllers
 {
@@ -74,7 +75,7 @@ namespace Aunt_Irma_Shop.Areas.Customer.Controllers
             }
             return View(detailCart);
         }
-       /* public async Task<IActionResult> Summary()
+        public async Task<IActionResult> Summary()
         {
             detailCart = new OrderDetailsCart()
             {
@@ -260,6 +261,6 @@ namespace Aunt_Irma_Shop.Areas.Customer.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        */
+        
     }
 }

@@ -26,7 +26,18 @@
                         {
                             <div class="row">
                                 <div class="d-none d-lg-block col-lg-2 text-center py-2">
-                                    <img src="@item.Item.Picture" width="120" height="80" />
+                                    
+
+
+                                        @if (item.Item.Picture != null)
+                                        {
+                                            var base64 = Convert.ToBase64String(item.Item.Picture);
+                                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                            <img src="@imgsrc" style=" width:100%;" />
+                                        }
+
+
+                                    
                                 </div>
                                 <div class="col-12 text-sm-center col-lg-5 text-lg-left">
                                     <h4><strong>@item.Item.Name</strong></h4>
